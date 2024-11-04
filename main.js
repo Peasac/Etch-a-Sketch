@@ -94,7 +94,7 @@ container.addEventListener("mouseover", (event) => {
 const clear = document.querySelector(".Clear")
 clear.addEventListener("click", () => {
     row.forEach(row => {
-        row.style.backgroundColor = "white";
+        row.style.backgroundColor = "";
     });
 })
 function color(){
