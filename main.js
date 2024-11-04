@@ -68,20 +68,21 @@ const row= document.querySelectorAll(".row");
 
 container.addEventListener("mouseover", (event) => {
     let defOpacity;
-        console.log(+event.target.style.opacity)
+    console.log(+event.target.style.opacity)
+    if(+event.target.style.opacity<1) {
+    defOpacity = +event.target.style.opacity;
         
-            defOpacity = +event.target.style.opacity;
-        
-            defOpacity += 0.3;
-            event.target.style.opacity = defOpacity;
-            
-            ///event.target.style.opacity = defOpacity;
+    defOpacity += 0.2;
+    event.target.style.opacity = defOpacity;
+    }
+    console.log(event.target.style.backgroundColor)
         
         
-        if (event.target.style.backgroundColor === "") {
-            const randomColor = `rgb(${color()}, ${color()}, ${color()})`;
-            event.target.style.backgroundColor = randomColor;
-        }
+    if (event.target.style.backgroundColor == "" || event.target.style.backgroundColor == "white") {
+        
+        const randomColor = `rgb(${color()}, ${color()}, ${color()})`;
+        event.target.style.backgroundColor = randomColor;
+    }
         
     
 });
@@ -95,9 +96,10 @@ const clear = document.querySelector(".Clear")
 clear.addEventListener("click", () => {
     row.forEach(row => {
         row.style.backgroundColor = "";
+        row.style.opacity = 1;
     });
 })
 function color(){
-    return Math.floor(Math.random()*256)
+    return Math.floor(Math.random()*255)
 }
 
